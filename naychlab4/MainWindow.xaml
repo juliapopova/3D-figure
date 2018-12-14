@@ -11,10 +11,9 @@
     
     <Grid>
         <h:HelixViewport3D Name="pole">
-            
             <h:DefaultLights/>
-            <!--<h:CubeVisual3D></h:CubeVisual3D>-->
         </h:HelixViewport3D>
-       
     </Grid>
+    
+    
 </Window>

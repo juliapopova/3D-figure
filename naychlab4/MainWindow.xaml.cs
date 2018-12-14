@@ -28,21 +28,23 @@ namespace naychlab4
             Graphics();
         }
 
-        Random rnd;
-        Color color;
+        Random rnd1, rnd2, rnd3;
+        Color color1, color2, color3;
         BoxVisual3D box;
+
         TruncatedConeVisual3D tr1;
         TruncatedConeVisual3D tr2;
 
         public void Graphics ()
         {
+            
             //параллолепипед
             box = new BoxVisual3D()
             {
                 Height = 3,
                 Width = 3,
                 Length = 4,
-                Center = new Point3D(1,0,0),
+                Center = new Point3D(4, 0, 1.5),
                 Fill = new SolidColorBrush(Color.FromRgb(255, 0, 0)),
             };
 
@@ -50,9 +52,9 @@ namespace naychlab4
             tr1 = new TruncatedConeVisual3D()
             {
                 Height = 5,
-                Normal = new Vector3D(3, 3, 3),
+                Normal = new Vector3D(0, 0, 1),
                 BaseRadius = 2,
-                Origin = new Point3D(-5, -5, -5),
+                Origin = new Point3D(-1, 0, 0),
                 Fill = new SolidColorBrush(Color.FromRgb(0, 255, 0)),
             };
 
@@ -60,16 +62,18 @@ namespace naychlab4
             tr2 = new TruncatedConeVisual3D()
             {
                 Height = 5,
-                Normal = new Vector3D(3, 3, 3),
+                Normal = new Vector3D(0, 0, -1),
                 BaseRadius = 2,
-                Origin = new Point3D(-5, 1, -5),
+                Origin = new Point3D(-6, 0, 5),
                 Fill = new SolidColorBrush(Color.FromRgb(0, 255, 0)),
             };
 
             pole.Children.Add(tr1);
             pole.Children.Add(tr2);
             pole.Children.Add(box);
-            rnd = new Random();
+            rnd1 = new Random();
+            rnd2 = new Random();
+            rnd3 = new Random();
 
             System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
             timer.Tick += new EventHandler(TimerTick);
@@ -79,10 +83,12 @@ namespace naychlab4
 
         private void TimerTick (object sender, EventArgs e)
         {
-            color = Color.FromRgb(0, (byte)rnd.Next(0, 255), (byte)rnd.Next(0, 255));
-            box.Fill = new SolidColorBrush(color);
-            tr1.Fill = new SolidColorBrush(color);
-            tr2.Fill = new SolidColorBrush(color);
+            color1 = Color.FromRgb(0, (byte)rnd1.Next(0, 100), (byte)rnd1.Next(37, 153));
+            color2 = Color.FromRgb(0, (byte)rnd2.Next(100, 200), (byte)rnd2.Next(0, 255));
+            color3 = Color.FromRgb(0, (byte)rnd3.Next(0, 255), (byte)rnd3.Next(0, 100));
+            box.Fill = new SolidColorBrush(color1);
+            tr1.Fill = new SolidColorBrush(color2);
+            tr2.Fill = new SolidColorBrush(color3);
         }
     }
 }
