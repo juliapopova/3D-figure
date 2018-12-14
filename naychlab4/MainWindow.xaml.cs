@@ -36,7 +36,7 @@ namespace naychlab4
 
         public void Graphics ()
         {
-
+            //параллолепипед
             box = new BoxVisual3D()
             {
                 Height = 3,
@@ -46,6 +46,7 @@ namespace naychlab4
                 Fill = new SolidColorBrush(Color.FromRgb(255, 0, 0)),
             };
 
+            // конус
             tr1 = new TruncatedConeVisual3D()
             {
                 Height = 5,
@@ -55,6 +56,7 @@ namespace naychlab4
                 Fill = new SolidColorBrush(Color.FromRgb(0, 255, 0)),
             };
 
+            //конус
             tr2 = new TruncatedConeVisual3D()
             {
                 Height = 5,
